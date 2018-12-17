@@ -1,6 +1,5 @@
 import java.net.Socket;
 import java.util.Random;
-import java.util.stream.DoubleStream;
 
 public class GenerateLocation {
 
@@ -9,7 +8,7 @@ public class GenerateLocation {
     private Socket socket = new Socket();
 
 
-    public void _generate_passenger(int per_second){
+    public void _generate_passenger(int per_second) {
         try {
             _generate_locations(per_second);
         } catch (ToManyDataException e) {
@@ -18,7 +17,7 @@ public class GenerateLocation {
         }
     }
 
-    public void _generate_driver(int per_second){
+    public void _generate_driver(int per_second) {
         try {
             _generate_locations(per_second);
         } catch (ToManyDataException e) {
@@ -29,20 +28,22 @@ public class GenerateLocation {
 
     public void _generate_locations(int perSecond) throws ToManyDataException {
         Random random = new Random();
-        for(int i=0;i<50;i++){
+        double longitude, latitude;
+        for (int i = 0; i < 50; i++) {
             long start = System.currentTimeMillis();
-            DoubleStream longitude_stream = random.doubles(perSecond,100,110);
-            DoubleStream latitude_stream = random.doubles(perSecond,30,40);
-            longitude_stream.str
+            StringBuffer buf = new StringBuffer();
+            for (int j = 0; j < perSecond; j++) {
+                longitude = random.nextDouble();
+                latitude = random.nextDouble();
+            }
             long end = System.currentTimeMillis();
-            if(end-start<1000){
+            if (end - start < 1000) {
                 try {
-                    Thread.sleep(1000-(end-start));
+                    Thread.sleep(1000 - (end - start));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-            }
-            else{
+            } else {
                 throw new ToManyDataException();
             }
         }
