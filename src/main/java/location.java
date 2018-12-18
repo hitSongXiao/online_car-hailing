@@ -10,6 +10,16 @@ public class location {
     }
 
 
+    public void _set_longtitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+
+    public void _set_latitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+
     public double _get_longitude() {
         return longitude;
     }
