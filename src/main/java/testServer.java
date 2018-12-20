@@ -1,22 +1,20 @@
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
 
 /**
  * 测试是否能够成功发送与接受信息
  */
-public class testServer extends Thread{
-    public void run(){
+public class testServer{
+    public static void main(String args[]){
         try {
-            ServerSocket server = new ServerSocket(9999);
+            Socket socket = new Socket("127.0.0.1",8080);
             while(true) {
-                Socket client = server.accept();
-                client.setSoTimeout(400);
+                socket.setSoTimeout(400);
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                new testServer().getBack(stream, client);
+                new testServer().getBack(stream, socket);
                 System.out.append(stream.toString());
             }
         } catch (IOException e) {

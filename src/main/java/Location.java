@@ -1,10 +1,10 @@
 import java.io.IOException;
 
-public class location {
+public class Location {
     private double longitude;
     private double latitude;
 
-    public location(double longitude, double latitude) {
+    public Location(double longitude, double latitude) {
         this.longitude = longitude;
         this.latitude = latitude;
     }
@@ -35,7 +35,7 @@ public class location {
      * @param driver
      * @return
      */
-    public double _far_away_from(location driver) {
+    public double _far_away_from(Location driver) {
         double diff_longitude = longitude - driver._get_longitude();
         double diff_latitude = latitude - driver._get_latitude();
         return Math.sqrt((diff_longitude * diff_longitude +
