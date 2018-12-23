@@ -1,14 +1,19 @@
 import java.io.Serializable;
 
 public class Location implements Serializable {
+    private int area[] = new int[]{0,-1,1,-365,365,-366,-364,364,366};
+    private int tag = 0;
+    private Long time;
     private int row;
     private int col;
     private int id;
     private String type;
     private double longitude ;
     private double latitude ;
+    private boolean matched = false;
 
     public Location(String type, double longitude, double latitude, int id) {
+        this.time = System.currentTimeMillis();
         this.type = type;
         this.id = id;
         this.longitude = longitude;
@@ -34,6 +39,14 @@ public class Location implements Serializable {
         this.type = type;
     }
 
+    public void setTime(long time){
+        this.time = time;
+    }
+
+    public void setMatched(boolean matched){
+        this.matched = matched;
+    }
+
     public double getLongitude() {
         return longitude;
     }
@@ -51,10 +64,27 @@ public class Location implements Serializable {
         return id;
     }
 
-    public int getArea(){
-        return row*360+col;
+    public int _getArea(boolean clean,boolean operation){
+        if(operation){
+            if(clean){
+                tag=0;
+            }
+            if(tag>8){
+                tag = 0;
+                System.err.println("err");
+            }
+            return (row*360+col+area[tag++]);
+        }
+        return (row*360+col);
     }
 
+    public boolean getMatched(){
+        return matched;
+    }
+
+    public long getTime(){
+        return time;
+    }
 
     private void setNum(){
         col = (int)Math.ceil(longitude/0.1);
@@ -109,6 +139,11 @@ public class Location implements Serializable {
         return d * Math.PI / 180.0;
     }
 
+    public Location birth(){
+        Location location = new Location(type, longitude, latitude, id);
+        location.setTime(time);
+        return location;
+    }
 
     /*
      * 计算两个位置的距离，实际使用阶段,可以直接调用百度API计算距离，为方便使用具体实现及
@@ -131,7 +166,7 @@ public class Location implements Serializable {
     @Override
     public String toString() {
         //return "type:"+type+" \tid:"+id+" \tlongitude:" + longitude + " \tlatitude:" + latitude;
-        return "Location [type=" + type + ", id=" + id + ", longitude" + longitude + ", latitude"+latitude+"]";
+        return "Location [type=：" + type + ", id=：" + id + ", longitude:" + longitude + ", latitude:"+latitude+", matched:"+matched+", begin at:"+time+"]";
     }
 
 
