@@ -4,6 +4,7 @@ public class Location implements Serializable {
     private int area[] = new int[]{0,-1,1,-365,365,-366,-364,364,366};
     private int tag = 0;
     private Long time;
+    private Long arriveTime;
     private int row;
     private int col;
     private int id;
@@ -12,8 +13,9 @@ public class Location implements Serializable {
     private double latitude ;
     private boolean matched = false;
 
-    public Location(String type, double longitude, double latitude, int id) {
+    public Location(long arriveTime,String type, double longitude, double latitude, int id) {
         this.time = System.currentTimeMillis();
+        this.arriveTime = arriveTime;
         this.type = type;
         this.id = id;
         this.longitude = longitude;
@@ -64,17 +66,7 @@ public class Location implements Serializable {
         return id;
     }
 
-    public int _getArea(boolean clean,boolean operation){
-        if(operation){
-            if(clean){
-                tag=0;
-            }
-            if(tag>8){
-                tag = 0;
-                System.err.println("err");
-            }
-            return (row*360+col+area[tag++]);
-        }
+    public int _getArea(){
         return (row*360+col);
     }
 
@@ -86,9 +78,14 @@ public class Location implements Serializable {
         return time;
     }
 
+    public long getArriveTime(){
+        return arriveTime;
+    }
+
+
     private void setNum(){
-        col = (int)Math.ceil(longitude/0.1);
-        row = (int)Math.ceil(latitude/0.1);
+        col = (int)Math.ceil(longitude/40);
+        row = (int)Math.ceil(latitude/40);
     }
 
 
@@ -140,7 +137,7 @@ public class Location implements Serializable {
     }
 
     public Location birth(){
-        Location location = new Location(type, longitude, latitude, id);
+        Location location = new Location(arriveTime,type, longitude, latitude, id);
         location.setTime(time);
         return location;
     }
@@ -166,7 +163,7 @@ public class Location implements Serializable {
     @Override
     public String toString() {
         //return "type:"+type+" \tid:"+id+" \tlongitude:" + longitude + " \tlatitude:" + latitude;
-        return "Location [type=：" + type + ", id=：" + id + ", longitude:" + longitude + ", latitude:"+latitude+", matched:"+matched+", begin at:"+time+"]";
+        return "Location [type=：" + type + ", id=：" + id + ", longitude:" + longitude + ", latitude:"+latitude+", arrived time:"+arriveTime+", matched:"+matched+", begin at:"+time+"]";
     }
 
 

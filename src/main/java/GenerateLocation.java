@@ -14,16 +14,21 @@ public class GenerateLocation extends Thread {
     public void run() {
         Random random = new Random();
         double longitude, latitude;
+        long arriveTime;
         try {
-            for (int i = 0; i < 50; i++) {
+            for (int i = 0; i < 5; i++) {
                 long start = System.currentTimeMillis();
                 StringBuffer buf = new StringBuffer();
                 for (int j = 0; j < per_second; j++) {
+                    arriveTime = -1;
                     longitude = 10*random.nextDouble()+100;
                     latitude = 10*random.nextDouble()+30;
+                    if (type.equals("passenger"))
+                        arriveTime = System.currentTimeMillis()+Math.abs(random.nextLong())%60000000+60000;
                     buf.append(type).append(":").append(id++).
                             append(" longitude:").append(longitude).
-                            append(" latitude:").append(latitude).append("\n");
+                            append(" latitude:").append(latitude).
+                            append(" arriveTime:").append(arriveTime).append("\n");
                 }
                 socket.getOutputStream().write(buf.toString().getBytes());
                 long end = System.currentTimeMillis();
