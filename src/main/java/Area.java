@@ -17,7 +17,7 @@ public class Area implements Serializable {
         return area-sum[(tag++)%9];
     }
 
-    public Area getNextArea(){
+    public Area _getNextArea(){
         int t = tag;
         Area next = new Area(area+change[(t++)%9]);
         next.setTag(t);
@@ -28,17 +28,23 @@ public class Area implements Serializable {
         this.tag = tag;
     }
 
-    public int getTag(){
+    public int _getTag(){
         return tag;
     }
 
     @Override
-    public boolean equals(Object obj){
-        if(!(obj==null)&&obj instanceof Area){
-            return area==((Area) obj).getArea();
-        }
-        return false;
+    public int hashCode(){
+        return area;
     }
+
+    @Override
+    public boolean equals(Object obj){
+        if(obj==null || !(obj instanceof Area)){
+            return false;
+        }
+        return area==(((Area) obj).getArea());
+    }
+
 
     @Override
     public String toString(){

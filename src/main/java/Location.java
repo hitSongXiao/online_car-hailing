@@ -84,8 +84,8 @@ public class Location implements Serializable {
 
 
     private void setNum(){
-        col = (int)Math.ceil(longitude/40);
-        row = (int)Math.ceil(latitude/40);
+        col = (int)Math.ceil(longitude/10);
+        row = (int)Math.ceil(latitude/10);
     }
 
 
@@ -163,7 +163,7 @@ public class Location implements Serializable {
     @Override
     public String toString() {
         //return "type:"+type+" \tid:"+id+" \tlongitude:" + longitude + " \tlatitude:" + latitude;
-        return "Location [type=：" + type + ", id=：" + id + ", longitude:" + longitude + ", latitude:"+latitude+", arrived time:"+arriveTime+", matched:"+matched+", begin at:"+time+"]";
+        return "Location [type=：" + type + ", id=：" + id + ", longitude:" + longitude + ", latitude:"+latitude+", arrived time:"+arriveTime+", matched:"+matched+", begin at:"+time+"]\n";
     }
 
 

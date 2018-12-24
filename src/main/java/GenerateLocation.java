@@ -16,7 +16,7 @@ public class GenerateLocation extends Thread {
         double longitude, latitude;
         long arriveTime;
         try {
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 50; i++) {
                 long start = System.currentTimeMillis();
                 StringBuffer buf = new StringBuffer();
                 for (int j = 0; j < per_second; j++) {

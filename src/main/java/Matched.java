@@ -20,4 +20,9 @@ public class Matched {
     public Long getArriveTime(){
         return arriveTime;
     }
+
+    @Override
+    public String toString(){
+        return "[Passenger:"+passenger+"driver:"+driver+"the time of arrive:"+arriveTime+"]\n";
+    }
 }
