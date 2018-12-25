@@ -9,8 +9,8 @@ public class _generate_info {
             while(true){
                 Socket client = server.accept();
                 System.out.println("服务器已连接");
-                GenerateLocation generate_passenger = new GenerateLocation(client, "passenger", 1, 1);
-                GenerateLocation generate_driver = new GenerateLocation(client, "driver", 1, 1);
+                GenerateLocation generate_passenger = new GenerateLocation(client, "passenger", 1, 5);
+                GenerateLocation generate_driver = new GenerateLocation(client, "driver", 1, 5);
                 generate_driver.start();
                 generate_passenger.start();
             }
