@@ -5,7 +5,10 @@ import org.apache.spark.api.java.Optional;
 import org.apache.spark.api.java.function.Function2;
 import org.apache.spark.api.java.function.Function3;
 import org.apache.spark.rdd.RDD;
-import org.apache.spark.sql.*;
+import org.apache.spark.sql.Dataset;
+import org.apache.spark.sql.Row;
+import org.apache.spark.sql.SaveMode;
+import org.apache.spark.sql.SparkSession;
 import org.apache.spark.streaming.Durations;
 import org.apache.spark.streaming.State;
 import org.apache.spark.streaming.StateSpec;
@@ -24,8 +27,8 @@ public class _receive_info {
 
     public static void main(String args[]){
         _receive_info receive = new _receive_info();
-        SparkConf conf = new SparkConf().setMaster("local[2]").setAppName("online_car-hailing");
-        JavaStreamingContext jssc = new JavaStreamingContext(conf, Durations.seconds(1));
+        SparkConf conf = new SparkConf().setMaster("local[4]").setAppName("online_car-hailing");
+        JavaStreamingContext jssc = new JavaStreamingContext(conf, Durations.seconds(3));
         JavaReceiverInputDStream<String> lines = jssc.socketTextStream("localhost", 9999);
         JavaPairDStream<String,Location> info = lines.mapToPair(line->{
             String value[] = line.split("\\s+");
@@ -36,9 +39,9 @@ public class _receive_info {
             Location loc = new Location(arriveTime,typeId[0],longitude, latitude,Integer.valueOf(typeId[1]));
             return new Tuple2<>(value[0],loc);
         });
-        info.persist().persist(MEMORY_AND_DISK_SER);
+        info.persist(MEMORY_AND_DISK_SER);
         JavaPairDStream<String,Location>passengers = info.filter((tuple)->(tuple._1().split(":")[0].equals("passenger")));
-        receive.savePassengerFile(jssc.sparkContext(),passengers);
+        receive.savePassengerFile(passengers);
         JavaPairDStream<String,Location>drivers = info.filter((tuple)->(tuple._1().split(":")[0].equals("driver")));
         receive.saveDriverFile(jssc.sparkContext(),drivers);
         JavaPairDStream<Area, Tuple2<Long,Map<String,Location>>> passengers_each_area = receive.mapToArea(passengers);
@@ -57,7 +60,9 @@ public class _receive_info {
         };
         JavaPairDStream<Area, Tuple2<Long,Map<String,Location>>> passenger_info = passengers_each_area.mapWithState(StateSpec.function(function)).stateSnapshots();
         JavaPairDStream<Area, Tuple2<Long,Map<String,Location>>> driver_info = drivers_each_area.mapWithState(StateSpec.function(function)).stateSnapshots();
-        Tuple3<JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>>,JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>>,JavaPairDStream<Area,Set<Matched>>> tuple3 = null;
+        passenger_info.persist(MEMORY_AND_DISK_SER);
+        driver_info.persist(MEMORY_AND_DISK_SER);
+        Tuple3<JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>>,JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>>,JavaPairDStream<Area,Set<Matched>>> tuple3;
         JavaPairDStream<Area,Set<Matched>> matched=null;
         for(int i = 0;i<9;i++){
             driver_info = receive.changeArea(driver_info);
@@ -102,21 +107,21 @@ public class _receive_info {
         }
     }
 
-    public JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>> changeArea(JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>> pair){
+    private JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>> changeArea(JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>> pair){
         return pair.mapToPair(tuple->{
             Area next = tuple._1()._getNextArea();
             return new Tuple2<>(next, tuple._2());
         });
     }
 
-    public JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>> recoverArea(JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>> pair){
+    private JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>> recoverArea(JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>> pair){
         return pair.mapToPair(tuple->{
             Area realArea = new Area(tuple._1()._getRealArea());
             return new Tuple2<>(realArea, tuple._2());
         });
     }
 
-    public JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>> mapToArea(JavaPairDStream<String,Location> pair){
+    private JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>> mapToArea(JavaPairDStream<String,Location> pair){
         JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>> areas = pair.mapToPair(l->{
             Map<String,Location>loc = new HashMap<>();
             loc.put(l._1(), l._2());
@@ -140,7 +145,7 @@ public class _receive_info {
     }
 
 
-    public void savePassengerFile(JavaSparkContext sc, JavaPairDStream<String,Location> dstream){
+    private void savePassengerFile(JavaPairDStream<String,Location> dstream){
         dstream.map(ds->ds._2()).foreachRDD(rdd->{
             if(!rdd.isEmpty()){
                 SparkSession session = SparkSession.builder().config(rdd.context().getConf()).getOrCreate();
@@ -151,7 +156,7 @@ public class _receive_info {
         });
     }
 
-    public void saveDriverFile(JavaSparkContext sc, JavaPairDStream<String,Location> dstream){
+    private void saveDriverFile(JavaSparkContext sc, JavaPairDStream<String,Location> dstream){
         dstream.map(ds->ds._2()).foreachRDD(rdd->{
             if(!rdd.isEmpty()){
                 SparkSession session = SparkSession.builder().config(rdd.context().getConf()).getOrCreate();
@@ -162,14 +167,14 @@ public class _receive_info {
         });
     }
 
-    public void saveMatchedFile(JavaSparkContext sc, JavaPairDStream<Area,Set<Matched>> matched){
+    private void saveMatchedFile(JavaSparkContext sc, JavaPairDStream<Area,Set<Matched>> matched){
         matched.map(tuple->Arrays.asList(tuple._2().toArray())).foreachRDD(rdd->{
             if(rdd!=null&&rdd.count()>0) {
                 List<Object> l = rdd.reduce((list1, list2) -> {
                     List<Object> list = new ArrayList<>();
-                    if (!list1.isEmpty() && !(list2 == null))
+                    if (!(list2 == null)&&!list1.isEmpty() )
                         list.addAll(list1);
-                    if (!list2.isEmpty() && !(list2 == null))
+                    if (!(list2==null)&&!list2.isEmpty() )
                         list.addAll(list2);
                     return list;
                 });
@@ -181,7 +186,7 @@ public class _receive_info {
     }
 
 
-    public Tuple3<JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>>,JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>>,JavaPairDStream<Area,Set<Matched>>> match(JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>>passenger, JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>>driver){
+    private Tuple3<JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>>,JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>>,JavaPairDStream<Area,Set<Matched>>> match(JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>>passenger, JavaPairDStream<Area,Tuple2<Long,Map<String,Location>>>driver){
         JavaPairDStream<Area, Tuple2<Tuple2<Long,Map<String,Location>>,Tuple2<Long,Map<String,Location>>>> areaInfo = passenger.join(driver);
         JavaPairDStream<Area, Tuple3<Tuple2<Long,Map<String,Location>>,Tuple2<Long,Map<String,Location>>,Set<Matched>>> pair =  areaInfo.mapToPair(tuple->{
             Set<Matched> matcheds = new HashSet<>();
@@ -281,13 +286,7 @@ class sortByTime implements Comparator{
         if(o instanceof Location && t1 instanceof  Location) {
             value1 = (((Location) o).getArriveTime());
             value2 = ((Location) o).getArriveTime();
-            if (value1 < value2) {
-                return -1;
-            }
-            if (value1 == value2) {
-                return 0;
-            } else
-                return 1;
+            return Long.compare(value1, value2);
         }
             return 0;
     }

@@ -4,12 +4,12 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/GenerateLocation.java" line="40" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5bbcd63-068b-46b1-b38f-f90d027e340a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/MySet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/readjson.java" afterDir="false" />
+    <list default="true" id="f5bbcd63-068b-46b1-b38f-f90d027e340a" name="Default Changelist" comment="大概完成了?等待补充报告">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GenerateLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GenerateLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Location.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Matched.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Matched.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MySet.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/_generate_info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/_generate_info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/_receive_info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/_receive_info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Car-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/Car-1.0-SNAPSHOT.jar" afterDir="false" />
@@ -20,7 +20,6 @@
       <change beforePath="$PROJECT_DIR$/target/classes/_receive_info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/_receive_info.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sortByTime.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sortByTime.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -51,48 +50,52 @@
     <session id="-1137920703">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.119" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.59" value="1" />
           <entry key="project.open.time.61" value="1" />
+          <entry key="project.open.time.65" value="1" />
           <entry key="project.open.time.71" value="2" />
           <entry key="project.open.time.73" value="1" />
           <entry key="project.open.time.74" value="1" />
+          <entry key="project.open.time.75" value="2" />
           <entry key="project.open.time.78" value="1" />
           <entry key="project.open.time.79" value="1" />
           <entry key="project.open.time.84" value="1" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.open.time.94" value="1" />
+          <entry key="project.opened" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="27212" />
-          <entry key="txt" value="28" />
+          <entry key="java" value="27540" />
+          <entry key="txt" value="45" />
           <entry key="xml" value="73" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="27212" />
-          <entry key="PLAIN_TEXT" value="28" />
+          <entry key="JAVA" value="27540" />
+          <entry key="PLAIN_TEXT" value="45" />
           <entry key="XML" value="73" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="JAVA/GenerateLocation" value="20" />
+          <entry key="JAVA/Location" value="1" />
           <entry key="class" value="19" />
-          <entry key="java" value="31" />
+          <entry key="java" value="32" />
           <entry key="xml" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="19" />
-          <entry key="JAVA" value="31" />
-          <entry key="UML" value="20" />
+          <entry key="JAVA" value="32" />
+          <entry key="UML" value="21" />
           <entry key="XML" value="9" />
         </counts>
       </usages-collector>
@@ -103,8 +106,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/_generate_info.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+            <state relative-caret-position="94">
+              <caret line="12" column="96" lean-forward="true" selection-start-line="12" selection-start-column="96" selection-end-line="12" selection-end-column="96" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -112,14 +115,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Location.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="86" column="41" selection-start-line="86" selection-start-column="41" selection-end-line="86" selection-end-column="41" />
+            <state relative-caret-position="7">
+              <caret line="85" column="40" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="40" />
               <folding>
-                <element signature="e#1659#1660#0" expanded="true" />
-                <element signature="e#1692#1693#0" expanded="true" />
+                <element signature="e#1374#1375#0" expanded="true" />
+                <element signature="e#1410#1411#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -128,20 +131,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/_receive_info.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="273" column="5" selection-start-line="273" selection-start-column="5" selection-end-line="273" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="1064">
+              <caret line="56" column="36" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -149,7 +140,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/readjson.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
+            <state relative-caret-position="133">
               <caret line="12" column="60" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -159,19 +150,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/MySet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Matched.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="266">
+              <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
               <folding>
                 <element signature="e#842#843#0" expanded="true" />
                 <element signature="e#873#874#0" expanded="true" />
@@ -187,8 +169,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Area.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="121">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
               <folding>
                 <element signature="e#394#395#0" expanded="true" />
                 <element signature="e#436#437#0" expanded="true" />
@@ -200,8 +182,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/GenerateLocation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+            <state relative-caret-position="646">
+              <caret line="36" selection-start-line="36" selection-end-line="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -210,10 +192,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/lang/InterruptedException.class">
+        <entry file="file://$PROJECT_DIR$/src/main/java/_receive_info.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+            <state relative-caret-position="912">
+              <caret line="71" column="17" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -260,12 +245,12 @@
         <option value="$PROJECT_DIR$/src/main/java/Area.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyHashMap.java" />
         <option value="$PROJECT_DIR$/src/main/java/MySet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Matched.java" />
         <option value="$PROJECT_DIR$/src/main/java/readjson.java" />
-        <option value="$PROJECT_DIR$/src/main/java/GenerateLocation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Location.java" />
-        <option value="$PROJECT_DIR$/src/main/java/_generate_info.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Matched.java" />
         <option value="$PROJECT_DIR$/src/main/java/_receive_info.java" />
+        <option value="$PROJECT_DIR$/src/main/java/GenerateLocation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/_generate_info.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Location.java" />
       </list>
     </option>
   </component>
@@ -453,7 +438,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -484,13 +468,14 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/xiaosong/IdeaProjects/Car/src/main/java/Area.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545699469310" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547291829360" />
     <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/org/apache/spark/spark-streaming_2.12/2.4.0/spark-streaming_2.12-2.4.0.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -576,7 +561,11 @@
       <workItem from="1545619198408" duration="23667000" />
       <workItem from="1545644367686" duration="17933000" />
       <workItem from="1545662514574" duration="9626000" />
-      <workItem from="1545694482665" duration="4958000" />
+      <workItem from="1545694482665" duration="8453000" />
+      <workItem from="1545706672755" duration="1470000" />
+      <workItem from="1546848897711" duration="4107000" />
+      <workItem from="1547268799357" duration="13958000" />
+      <workItem from="1547446493085" duration="2253000" />
     </task>
     <task id="LOCAL-00001" summary="正在进行地理位置的生成">
       <created>1545057370591</created>
@@ -585,11 +574,18 @@
       <option name="project" value="LOCAL" />
       <updated>1545057370592</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="大概完成了?等待补充报告">
+      <created>1545699578909</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1545699578909</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="206657000" />
+    <option name="totallyTimeSpent" value="231940000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -602,9 +598,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1293" height="635" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22864117" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25142393" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -613,13 +608,13 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32838982" />
-      <window_info anchor="bottom" x="67" y="243" width="1293" height="209" id="Run" order="2" sideWeight="0.49552482" weight="0.6737288" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.42584747" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.42584747" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" x="67" y="243" width="1293" height="209" id="Run" order="5" sideWeight="0.49552482" weight="0.4957627" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.9216102" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4963385" visible="true" weight="0.29237288" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5044752" side_tool="true" weight="0.6461864" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49552482" visible="true" weight="0.66525424" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5044752" side_tool="true" weight="0.68008476" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.3834746" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" weight="0.32838982" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
@@ -633,7 +628,7 @@
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.24979658" />
-      <window_info anchor="right" id="Maven Projects" order="8" weight="0.25874695" />
+      <window_info anchor="right" id="Maven Projects" order="8" visible="true" weight="0.25874695" />
       <window_info anchor="right" id="Bean Validation" order="9" weight="0.3295362" />
       <window_info anchor="right" id="Database" order="10" weight="0.3295362" />
     </layout>
@@ -680,7 +675,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="正在进行地理位置的生成" />
-    <option name="LAST_COMMIT_MESSAGE" value="正在进行地理位置的生成" />
+    <MESSAGE value="大概完成了?等待补充报告" />
+    <option name="LAST_COMMIT_MESSAGE" value="大概完成了?等待补充报告" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -817,27 +813,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="9" column="61" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Area.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#394#395#0" expanded="true" />
-            <element signature="e#436#437#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/lang/InterruptedException.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -855,10 +830,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/readjson.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/MySet.java" />
+    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/lang/InterruptedException.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="12" column="60" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
+        <state relative-caret-position="133">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/Location">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>Location</OriginalElement>
+          <nodes>
+            <node x="" y="">java.io.Serializable</node>
+            <node x="" y="">Location</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="68.0" y="65.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/_generate_info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="12" column="96" lean-forward="true" selection-start-line="12" selection-start-column="96" selection-end-line="12" selection-end-column="96" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -867,15 +869,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+        <state relative-caret-position="1064">
+          <caret line="56" column="36" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/GenerateLocation.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/readjson.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+        <state relative-caret-position="133">
+          <caret line="12" column="60" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -884,8 +886,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Matched.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+        <state relative-caret-position="266">
+          <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
           <folding>
             <element signature="e#842#843#0" expanded="true" />
             <element signature="e#873#874#0" expanded="true" />
@@ -897,28 +899,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MySet.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/GenerateLocation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Location.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="86" column="41" selection-start-line="86" selection-start-column="41" selection-end-line="86" selection-end-column="41" />
-          <folding>
-            <element signature="e#1659#1660#0" expanded="true" />
-            <element signature="e#1692#1693#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/_generate_info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+        <state relative-caret-position="646">
+          <caret line="36" selection-start-line="36" selection-end-line="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -927,10 +911,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/_receive_info.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="273" column="5" selection-start-line="273" selection-start-column="5" selection-end-line="273" selection-end-column="5" />
+        <state relative-caret-position="912">
+          <caret line="71" column="17" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Area.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#394#395#0" expanded="true" />
+            <element signature="e#436#437#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7">
+          <caret line="85" column="40" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="40" />
+          <folding>
+            <element signature="e#1374#1375#0" expanded="true" />
+            <element signature="e#1410#1411#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,8 +1,6 @@
 import java.io.Serializable;
 
 public class Location implements Serializable {
-    private int area[] = new int[]{0,-1,1,-365,365,-366,-364,364,366};
-    private int tag = 0;
     private Long time;
     private Long arriveTime;
     private int row;
@@ -84,8 +82,8 @@ public class Location implements Serializable {
 
 
     private void setNum(){
-        col = (int)Math.ceil(longitude/10);
-        row = (int)Math.ceil(latitude/10);
+        col = (int)Math.ceil(longitude/0.1);
+        row = (int)Math.ceil(latitude/0.1);
     }
 
 

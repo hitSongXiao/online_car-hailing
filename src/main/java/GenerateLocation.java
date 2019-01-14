@@ -32,9 +32,9 @@ public class GenerateLocation extends Thread {
                 }
                 socket.getOutputStream().write(buf.toString().getBytes());
                 long end = System.currentTimeMillis();
-                if (end - start < 1000) {
+                if (end - start < 3000) {
                     try {
-                        Thread.sleep(1000 - (end - start));
+                        Thread.sleep(3000 - (end - start));
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

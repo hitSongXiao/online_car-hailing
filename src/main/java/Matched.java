@@ -43,6 +43,6 @@ public class Matched implements Serializable {
 
     @Override
     public String toString(){
-        return "[Passenger:"+passenger+"driver:"+driver+"the time of arrive:"+arriveTime+"]\n";
+        return "[Passenger:"+passenger+", driver:"+driver+", the time of arrive:"+arriveTime+", cost time:"+costTime+"]\n";
     }
 }
